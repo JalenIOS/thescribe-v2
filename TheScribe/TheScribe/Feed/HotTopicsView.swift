@@ -42,25 +42,30 @@ struct HotTopicsView: View {
                                         .clipped()
                                 } placeholder: {
                                     ProgressView()
+                                        .frame(width: UIScreen.main.bounds.width, height: 320)
+
                                 }
                                 
                             }
                             
-                            VStack(alignment: .leading) {
-                                Text(article.title)
-                                    .font(.body)
-                                    .fontWeight(.bold)
-                                    .lineLimit(2)
-                                    .fixedSize(horizontal: false, vertical: true)
-                                
-                                Text("\(formatDate(dateStr: article.publishedAt)) By \(article.author ?? "")")
-                                    .font(.footnote)
-                                    .foregroundStyle(Color.gray)
+                            VStack(alignment: .leading, spacing: 10) {
+                                VStack(alignment: .leading) {
+                                    Text(article.title)
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                        .lineLimit(2)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                    
+                                    Text("\(formatDate(dateStr: article.publishedAt)) By \(article.author ?? "")")
+                                        .font(.footnote)
+                                        .foregroundStyle(Color.gray)
+                                    
+                                }
                                 
                                 if let description = article.description {
                                     Text(description)
                                         .font(.subheadline)
-                                        .lineLimit(2)
+                                        .lineLimit(3)
                                         .fixedSize(horizontal: false, vertical: true)
                                         
                                 }

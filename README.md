@@ -16,5 +16,5 @@ I updated the UI to pivot in the direction of creating a news app that has an in
 
 Implemented an enum to store the different endpoints for each type of news is to be shown, the logic to let the user update the type of news they are looking at and refetching the correct data when that happens and also implemented matched geometry on the indicator bar for a smooth transition between views
 
-<img src="Images/added-slider.png" alt="Alt Text" width="200"/>
+<img src="Images/added-spacing.png" alt="Alt Text" width="200"/>
 

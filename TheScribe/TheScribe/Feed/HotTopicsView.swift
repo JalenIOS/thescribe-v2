@@ -72,7 +72,9 @@ struct HotTopicsView: View {
                                 if let description = article.description {
                                     Text(description)
                                         .font(.subheadline)
-                                    
+                                        .lineLimit(2)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        
                                 }
                                     
                             }
@@ -105,7 +107,7 @@ struct HotTopicsView: View {
                             .padding()
                             
                         }
-                        .frame(width: UIScreen.main.bounds.width, height: 500, alignment: .top)
+                        .frame(width: UIScreen.main.bounds.width, height: 550, alignment: .top)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(Color(.label).opacity(0.15), lineWidth: 1)

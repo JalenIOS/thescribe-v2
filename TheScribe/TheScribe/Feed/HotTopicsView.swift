@@ -47,57 +47,75 @@ struct HotTopicsView: View {
                                 }
                                 
                             }
-                            
-                            VStack(alignment: .leading, spacing: 10) {
-                                VStack(alignment: .leading) {
-                                    Text(article.title)
-                                        .font(.body)
-                                        .fontWeight(.bold)
-                                        .lineLimit(2)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                    
-                                    Text("\(formatDate(dateStr: article.publishedAt)) By \(article.author ?? "")")
-                                        .font(.footnote)
-                                        .foregroundStyle(Color.gray)
-                                    
-                                }
+                            VStack(spacing:5) {
                                 
-                                if let description = article.description {
-                                    Text(description)
-                                        .font(.subheadline)
-                                        .lineLimit(3)
-                                        .fixedSize(horizontal: false, vertical: true)
+                                VStack(alignment: .leading, spacing: 10) {
+                                    VStack(alignment: .leading) {
+                                        Text(article.title)
+                                            .font(.body)
+                                            .fontWeight(.bold)
+                                            .lineLimit(2)
+                                            .fixedSize(horizontal: false, vertical: true)
                                         
-                                }
+                                        Text("\(formatDate(dateStr: article.publishedAt)) By \(article.author ?? "")")
+                                            .font(.footnote)
+                                            .foregroundStyle(Color.gray)
+                                        
+                                    }
                                     
-                            }
-                            .padding()
-                            
-                            Spacer()
-                            
-                            HStack {
-                                Image(systemName: "heart")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 25)
-                                
-                                Image(systemName: "paperplane")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 25)
+                                    if let description = article.description {
+                                        Text(description)
+                                            .font(.subheadline)
+                                            .lineLimit(3)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                        
+                                    }
+                                    
+                                }
+//                                .padding()
                                 
                                 Spacer()
                                 
-                                Image(systemName: "chevron.right")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 8)
-                                    .foregroundStyle(Color.gray)
-                                
+                                HStack{
+                                    
+                                    HStack(spacing: 15)  {
+                                        Image(systemName: "heart")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 25)
+                                        
+                                        Image(systemName: "paperplane")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 25)
+                                        
+                                        HStack {
+                                            Image(systemName: "text.bubble")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 25)
+                                            Text("8")
+                                        }
+                                        
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 8)
+                                        .foregroundStyle(Color.gray)
+                                    
+                                }
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .foregroundStyle(Color(.label))
                                 
                             }
-                            .frame(maxWidth: .infinity)
                             .padding()
+//                            .padding([.trailing, .bottom])
+                            
+                            
                             
                         }
                         .frame(width: UIScreen.main.bounds.width, height: 550, alignment: .top)

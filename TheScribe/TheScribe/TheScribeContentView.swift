@@ -18,14 +18,14 @@ struct TheScribeContentView: View {
         .safeAreaInset(edge: .top) {
             HStack {
                 Text("The Scribe")
-                    .font(.title)
+                    .font(.title2)
                     .fontWeight(.semibold)
                 
                 
                 Image(systemName: "applescript")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 20)
+                    .frame(width: 15)
             }
             .padding()
             .frame(maxWidth: .infinity, alignment: .center)
@@ -42,7 +42,7 @@ struct TheScribeContentView: View {
                     Image(systemName: "newspaper")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30)
+                        .frame(width: 25)
                         .foregroundStyle(Color(.pink))
                 }
                 
@@ -52,7 +52,7 @@ struct TheScribeContentView: View {
                     Image(systemName: "heart")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30)
+                        .frame(width: 25)
                         .foregroundStyle(Color.gray)
                 }
                 
@@ -62,7 +62,7 @@ struct TheScribeContentView: View {
                     Image(systemName: "magnifyingglass")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30)
+                        .frame(width: 25)
 //                        .shadow(color: Color(.label), radius: 2)
                         .foregroundStyle(Color.gray)
                 }
@@ -73,7 +73,7 @@ struct TheScribeContentView: View {
                     Image(systemName: "text.bubble")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30)
+                        .frame(width: 25)
                         .foregroundStyle(Color.gray)
                 }
                 
@@ -83,7 +83,7 @@ struct TheScribeContentView: View {
                     Image(systemName: "person.crop.circle.badge.questionmark.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 35)
+                        .frame(width: 25)
                         .foregroundStyle(Color.gray)
                 }
             }

@@ -18,3 +18,7 @@ Implemented an enum to store the different endpoints for each type of news is to
 
 <img src="Images/added-spacing.png" alt="Alt Text" width="200"/>
 
+
+
+<img src="Images/updated-iconsize.png" alt="Alt Text" width="200"/>
+

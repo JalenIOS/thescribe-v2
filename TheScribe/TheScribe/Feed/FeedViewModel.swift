@@ -24,11 +24,11 @@ final class FeedViewModel: @unchecked Sendable {
         case .success(let data):
             do {
                 let newsData = try JSONDecoder().decode(NewsResponse.self, from: data)
-                                
+                print(newsData)
                 self.hotTopics = newsData.articles
                     
             } catch {
-                
+                print(error)
             }
         case .failure(let error):
             print(error)

@@ -36,7 +36,7 @@ struct TheScribeContentView: View {
             
         }
         .safeAreaInset(edge: .bottom) {
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4)) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 5)) {
                 VStack(spacing: 10) {
 
                     Image(systemName: "newspaper")
@@ -53,6 +53,17 @@ struct TheScribeContentView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30)
+                        .foregroundStyle(Color.gray)
+                }
+                
+                VStack(spacing: 10) {
+//                    Rectangle()
+//                        .frame(height: 1)
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30)
+//                        .shadow(color: Color(.label), radius: 2)
                         .foregroundStyle(Color.gray)
                 }
                 
@@ -76,8 +87,8 @@ struct TheScribeContentView: View {
                         .foregroundStyle(Color.gray)
                 }
             }
-            .padding(30)
-//            .background(.ultraThickMaterial)
+            .padding()
+            .background(.ultraThickMaterial)
         }
     }
 }

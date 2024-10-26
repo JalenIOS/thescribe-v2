@@ -19,7 +19,7 @@ final class NewsManager: Sendable {
     }
     
     func getNews(reqType: NewsReqType) async throws -> Result<Data, NewsManagerError> {
-        print("\(baseUrl)?country=usa")
+        print("\(baseUrl)?country=us")
         guard let url = URL(string: "\(baseUrl)\(reqType.rawValue)?country=us") else { return .failure(.invalidRequest(URLError(.badURL))) }
         
         var req = URLRequest(url: url)
@@ -28,7 +28,8 @@ final class NewsManager: Sendable {
         
         do  {
             let (data, response) = try await URLSession.shared.data(for: req)
-            
+            let str = String(data:data, encoding: .utf8)
+//            print(str!)
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
                 return .failure(.invalidRequest(URLError(.badServerResponse)))
             }
@@ -47,6 +48,7 @@ final class NewsManager: Sendable {
 
 enum NewsReqType: String {
     case topHeadlines = "/v2/top-headlines"
+    case allNews = "/v2/everything"
 }
 
 enum NewsManagerError: Error {

@@ -43,8 +43,8 @@ struct HotTopicsView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
                 
             
-            ScrollView(.horizontal) {
-                HStack {
+            ScrollView(.vertical) {
+                LazyVGrid(columns: [GridItem(.flexible())]) {
                     ForEach(feedViewModel.hotTopics, id: \.url) { article in
                         
                         VStack{
@@ -53,7 +53,7 @@ struct HotTopicsView: View {
                                     image
                                         .resizable()
                                         .aspectRatio(4 / 3, contentMode: .fill)
-                                        .frame(width: 330, height: 320)
+                                        .frame(width: UIScreen.main.bounds.width, height: 320)
                                         .clipped()
                                 } placeholder: {
                                     ProgressView()
@@ -69,13 +69,47 @@ struct HotTopicsView: View {
                                     .font(.footnote)
                                     .foregroundStyle(Color.gray)
                                 
-                                Text(article.description)
-                                    .font(.subheadline)
+                                if let description = article.description {
+                                    Text(description)
+                                        .font(.subheadline)
+                                    
+                                }
                                     
                             }
+                            .padding()
+                            
+                            Spacer()
+                            
+                            HStack {
+                                Image(systemName: "heart")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 25)
+                                
+                                Image(systemName: "paperplane")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 25)
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 8)
+                                    .foregroundStyle(Color.gray)
+                                
+                                
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
                             
                         }
-                        .frame(width: 330, height: 500, alignment: .top)
+                        .frame(width: UIScreen.main.bounds.width, height: 500, alignment: .top)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color(.label).opacity(0.15), lineWidth: 1)
+                        )
                         
                             
                     }
@@ -86,7 +120,7 @@ struct HotTopicsView: View {
                 .padding()
                 .scrollTargetLayout()
             }
-            .scrollTargetBehavior(.viewAligned)
+//            .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

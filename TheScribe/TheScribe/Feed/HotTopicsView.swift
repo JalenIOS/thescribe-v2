@@ -25,27 +25,12 @@ struct HotTopicsView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            HStack {
-                Text("HOT TOPICS 🔥")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(Color.gray)
-                
-                Spacer()
-                
-                Text("See all")
-                    .font(.footnote)
-                    .foregroundStyle(Color.pink)
-                    .padding(.trailing)
-                
-            }
-            .padding([.top,.horizontal], 15)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            
                 
             
             ScrollView(.vertical) {
                 LazyVGrid(columns: [GridItem(.flexible())]) {
-                    ForEach(feedViewModel.hotTopics, id: \.url) { article in
+                    ForEach(feedViewModel.currNews, id: \.url) { article in
                         
                         VStack{
                             if let urlString = article.urlToImage {
@@ -65,6 +50,9 @@ struct HotTopicsView: View {
                                 Text(article.title)
                                     .font(.body)
                                     .fontWeight(.bold)
+                                    .lineLimit(2)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                
                                 Text("\(formatDate(dateStr: article.publishedAt)) By \(article.author ?? "")")
                                     .font(.footnote)
                                     .foregroundStyle(Color.gray)

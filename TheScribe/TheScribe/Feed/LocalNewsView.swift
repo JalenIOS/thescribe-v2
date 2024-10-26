@@ -12,7 +12,7 @@ struct LocalNewsView: View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             .onAppear {
                 Task {
-                   let result = try await NewsManager.shared.getNews(reqType: .allNews)
+                    let result = try await NewsManager.shared.getNews(reqType: .general)
                     print(result)
 
                 }
